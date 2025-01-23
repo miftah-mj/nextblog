@@ -1,26 +1,23 @@
 import React from "react";
+import {
+    RegisterLink,
+    LoginLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 
 const Navbar = () => {
     return (
-        <nav className="bg-gray-800 p-4">
+        <nav className="bg-blue-200 p-4">
             <div className="container mx-auto flex justify-between items-center">
-                <div className="text-white text-lg font-bold">My Blog</div>
+                <div className=" text-lg font-bold">My Blog</div>
                 <div className="hidden md:flex space-x-4">
-                    <a href="/" className="text-gray-300 hover:text-white">
-                        Home
-                    </a>
-                    <a href="/about" className="text-gray-300 hover:text-white">
-                        About
-                    </a>
-                    <a
-                        href="/contact"
-                        className="text-gray-300 hover:text-white"
-                    >
-                        Contact
-                    </a>
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <LoginLink>Sign in</LoginLink>
+                    <RegisterLink>Sign up</RegisterLink>
                 </div>
                 <div className="md:hidden">
-                    <button className="text-gray-300 hover:text-white focus:outline-none">
+                    <button className=" focus:outline-none">
                         <svg
                             className="w-6 h-6"
                             fill="none"
