@@ -26,12 +26,12 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-blue-200 py-4 px-4 lg:px-0">
+        <nav className="bg-blue-50 py-5 px-4 lg:px-0">
             <div className="max-w-screen-xl mx-auto flex justify-between items-center">
                 <Link href="/" className="text-2xl font-bold">
                     NextBlog
                 </Link>
-                <div className="hidden md:flex space-x-4">
+                <div className="hidden md:flex md:items-center space-x-4">
                     <Link href="/" className="hover:underline">
                         Home
                     </Link>
