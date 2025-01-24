@@ -29,7 +29,7 @@ const Navbar = () => {
         <nav className="bg-blue-200 py-4 px-4 lg:px-0">
             <div className="max-w-screen-xl mx-auto flex justify-between items-center">
                 <Link href="/" className="text-lg font-bold">
-                    My Blog
+                    NextBlog
                 </Link>
                 <div className="hidden md:flex space-x-4">
                     <Link href="/">Home</Link>

@@ -1,10 +1,12 @@
 "use client";
 
+import LoadingSpinner from "../components/LoadingSpinner";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
     const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -13,32 +15,45 @@ export default function Home() {
             );
             const data = await res.json();
             setPosts(data);
+            setLoading(false);
         };
 
         fetchPosts();
     }, []);
 
+    if (loading) {
+        return <LoadingSpinner />;
+    }
+
     return (
-        <div className="max-w-screen-xl mx-auto px-4 lg:px-0">
-            <h1 className="text-4xl font-bold text-center mt-8">
+        <div className="max-w-screen-xl mx-auto px-4 lg:px-0 py-12">
+            <h1 className="text-4xl font-bold text-center">
                 Welcome to my blog
             </h1>
             <p className="text-center mt-4">
-                Here you can find all the latest blog posts
+                Here are some of my latest posts for you to enjoy. Feel free to
+                read them and leave a comment!
             </p>
-            <div className="mt-8">
-                <ul>
-                    {posts.map((post) => (
-                        <li key={post.id} className="mb-4">
-                            <Link
-                                href={`/posts/${post.id}`}
-                                className="text-blue-500 hover:underline"
-                            >
-                                {post.title}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {posts.map((post) => (
+                    <div
+                        key={post.id}
+                        className="bg-white shadow-md rounded-sm flex flex-col p-4"
+                    >
+                        <h2 className="text-xl font-semibold mb-2">
+                            {post.title}
+                        </h2>
+                        <p className="text-gray-700 mb-4 flex-grow">
+                            {post.body.substring(0, 100)}...
+                        </p>
+                        <Link
+                            href={`/posts/${post.id}`}
+                            className="text-blue-500 border border-blue-500 w-max p-3 hover:underline"
+                        >
+                            Read more
+                        </Link>
+                    </div>
+                ))}
             </div>
         </div>
     );
