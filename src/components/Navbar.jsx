@@ -28,26 +28,41 @@ const Navbar = () => {
     return (
         <nav className="bg-blue-200 py-4 px-4 lg:px-0">
             <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-                <Link href="/" className="text-lg font-bold">
+                <Link href="/" className="text-2xl font-bold">
                     NextBlog
                 </Link>
                 <div className="hidden md:flex space-x-4">
-                    <Link href="/">Home</Link>
+                    <Link href="/" className="hover:underline">
+                        Home
+                    </Link>
                     {isAuthenticated ? (
-                        <Link href="/profile">Profile</Link>
+                        <Link href="/profile" className="hover:underline">
+                            Profile
+                        </Link>
                     ) : (
-                        <LoginLink postLoginRedirectURL="/profile">
+                        <LoginLink
+                            postLoginRedirectURL="/profile"
+                            className="hover:underline"
+                        >
                             Profile
                         </LoginLink>
                     )}
                     {isAuthenticated ? (
-                        <LogoutLink>Logout</LogoutLink>
+                        <LogoutLink className="hover:underline">
+                            Logout
+                        </LogoutLink>
                     ) : (
                         <div className="space-x-4">
-                            <LoginLink postLoginRedirectURL="/">
+                            <LoginLink
+                                postLoginRedirectURL="/"
+                                className="hover:underline"
+                            >
                                 Sign in
                             </LoginLink>
-                            <RegisterLink postLoginRedirectURL="/">
+                            <RegisterLink
+                                postLoginRedirectURL="/"
+                                className="hover:underline"
+                            >
                                 Sign up
                             </RegisterLink>
                         </div>

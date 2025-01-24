@@ -28,7 +28,7 @@ export default function Home() {
     return (
         <div className="max-w-screen-xl mx-auto px-4 lg:px-0 py-12">
             <h1 className="text-4xl font-bold text-center">
-                Welcome to my blog
+                Welcome to NextBlog
             </h1>
             <p className="text-center mt-4">
                 Here are some of my latest posts for you to enjoy. Feel free to
