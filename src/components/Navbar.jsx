@@ -3,6 +3,8 @@ import {
     RegisterLink,
     LoginLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import Link from "next/link";
 
 const Navbar = () => {
     return (
@@ -10,11 +12,13 @@ const Navbar = () => {
             <div className="container mx-auto flex justify-between items-center">
                 <div className=" text-lg font-bold">My Blog</div>
                 <div className="hidden md:flex space-x-4">
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/contact">Contact</a>
-                    <LoginLink>Sign in</LoginLink>
-                    <RegisterLink>Sign up</RegisterLink>
+                    <Link href="/">Home</Link>
+                    <Link href="/profile">Profile</Link>
+                    <LoginLink postLoginRedirectURL="/">Sign in</LoginLink>
+                    <RegisterLink postLoginRedirectURL="/">
+                        Sign up
+                    </RegisterLink>
+                    <LogoutLink>Log out</LogoutLink>
                 </div>
                 <div className="md:hidden">
                     <button className=" focus:outline-none">
