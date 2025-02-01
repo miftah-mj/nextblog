@@ -12,10 +12,9 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "../components/ui/dropdown-menu";
+} from "./ui/dropdown-menu";
 
 const Navbar = () => {
     const { isAuthenticated } = useKindeAuth();
@@ -34,6 +33,9 @@ const Navbar = () => {
                 <div className="hidden md:flex md:items-center space-x-4">
                     <Link href="/" className="hover:underline">
                         Home
+                    </Link>
+                    <Link href="/blogs" className="hover:underline">
+                        Blogs
                     </Link>
                     {isAuthenticated ? (
                         <Link href="/profile" className="hover:underline">
@@ -89,6 +91,9 @@ const Navbar = () => {
                         <DropdownMenuContent isOpen={isDropdownOpen}>
                             <DropdownMenuItem>
                                 <Link href="/">Home</Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href="/blogs">Blogs</Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem>
                                 {isAuthenticated ? (

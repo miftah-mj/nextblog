@@ -4,7 +4,7 @@ import LoadingSpinner from "@components/LoadingSpinner";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function Blogs() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -14,7 +14,7 @@ export default function Home() {
                 "https://jsonplaceholder.typicode.com/posts"
             );
             const data = await res.json();
-            setPosts(data.slice(0, 10)); // Limit to 10 posts
+            setPosts(data);
             setLoading(false);
         };
 
@@ -27,12 +27,10 @@ export default function Home() {
 
     return (
         <div className="max-w-screen-xl mx-auto px-4 lg:px-0 py-12">
-            <h1 className="text-4xl font-bold text-center">
-                Welcome to NextBlog
-            </h1>
+            <h1 className="text-4xl font-bold text-center">All Blogs</h1>
             <p className="text-center mt-4">
-                Here are some of my latest posts for you to enjoy. Feel free to
-                read them and leave a comment!
+                A collection of all the blogs available on our platform. Feel
+                free to read them and leave a comment.
             </p>
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {posts.map((post) => (
