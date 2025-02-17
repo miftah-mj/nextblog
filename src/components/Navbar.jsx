@@ -31,39 +31,39 @@ const Navbar = () => {
                     NextBlog
                 </Link>
                 <div className="hidden md:flex md:items-center space-x-4">
-                    <Link href="/" className="hover:underline">
+                    <Link href="/" className="hover:underline hover:text-blue-500">
                         Home
                     </Link>
-                    <Link href="/blogs" className="hover:underline">
+                    <Link href="/blogs" className="hover:underline hover:text-blue-500">
                         Blogs
                     </Link>
                     {isAuthenticated ? (
-                        <Link href="/profile" className="hover:underline">
+                        <Link href="/profile" className="hover:underline hover:text-blue-500">
                             Profile
                         </Link>
                     ) : (
                         <LoginLink
                             postLoginRedirectURL="/profile"
-                            className="hover:underline"
+                            className="hover:underline hover:text-blue-500"
                         >
                             Profile
                         </LoginLink>
                     )}
                     {isAuthenticated ? (
-                        <LogoutLink className="hover:underline">
+                        <LogoutLink className="hover:underline hover:text-blue-500">
                             Logout
                         </LogoutLink>
                     ) : (
                         <div className="space-x-4">
                             <LoginLink
                                 postLoginRedirectURL="/"
-                                className="hover:underline"
+                                className="hover:underline hover:text-blue-500"
                             >
                                 Sign in
                             </LoginLink>
                             <RegisterLink
                                 postLoginRedirectURL="/"
-                                className="hover:underline"
+                                className="hover:underline "
                             >
                                 Sign up
                             </RegisterLink>
